@@ -1,4 +1,5 @@
 import path from 'path';
+import cors from 'cors';
 import express from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -11,10 +12,19 @@ import projectRoutes from './routes/projectRoutes.js';
 
 const port = process.env.PORT || 5000;
 const dbName = process.env.DB_NAME;
+const frontEndUrl = process.env.FRONTEND_URL;
 
 connectDB(dbName);
 
 const app = express();
+
+const corsOptions = {
+  origin: frontEndUrl,
+  optionsSuccessStatus: 200,
+  credentials: true
+}
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
