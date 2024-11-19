@@ -10,8 +10,9 @@ import teamRoutes from './routes/teamRoutes.js';
 import projectRoutes from './routes/projectRoutes.js';
 
 const port = process.env.PORT || 5000;
+const dbName = process.env.DB_NAME;
 
-connectDB();
+connectDB(dbName);
 
 const app = express();
 
