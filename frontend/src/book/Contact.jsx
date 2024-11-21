@@ -14,7 +14,7 @@ const Contact = () => {
       <li>Emi Stafford: <b>(???) ???-?????</b></li>
     </ul>
 
-    <p>You can also message them on <a href="https://discord.com" target="_blank" rel="noreferrer">Discord</a> or send an email to <a href="mailto:techoutreach@hyland.com">techoutreach@hyland.com</a>.</p>
+    <p>You can also message them on <a href="https://discord.gg/pufaaWJaAH" target="_blank" rel="noreferrer">Discord</a> or send an email to <a href="mailto:techoutreach@hyland.com">techoutreach@hyland.com</a>.</p>
 
     <LinkBox to="/book/contact/discord" style={{background: "var(--blue)", width: "300px", maxWidth: "100%"}}>
       <h5>Discord Server Information</h5>

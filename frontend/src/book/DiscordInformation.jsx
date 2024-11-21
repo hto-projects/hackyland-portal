@@ -6,7 +6,7 @@ const DiscordInformation = () => {
 <p><em>Communication is key.</em></p>
 <p>We will use <a href="https://discord.com/" target="_blank" rel="noreferrer">Discord</a> as a way for students and mentors to communicate during the event.</p>
 <h2 id="invite-link">Invite Link</h2>
-<p><a href="https://discord.gg/ah6678uzWA" target="_blank" rel="noreferrer">Click here to join the Discord Server.</a></p>
+<p><a href="https://discord.gg/pufaaWJaAH" target="_blank" rel="noreferrer">Click here to join the Discord Server.</a></p>
 <h2 id="parental-consent-form-agreement">Parental Consent Form Agreement</h2>
 <p>As noted in the parental consent form that was signed by Parents or Guardians, each student has agreed to the following regarding the use of Discord: </p>
 <blockquote>
