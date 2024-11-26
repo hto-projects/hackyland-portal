@@ -11,7 +11,7 @@ const Contact = () => {
     <ul>
       <li>Joseph Maxwell: <b>(216) 218-2609</b></li>
       <li>Caitlin Nowlin: <b>(216) 469-4921</b></li>
-      <li>Emi Stafford: <b>(???) ???-?????</b></li>
+      <li>Emi Stafford: <b>(216) 379-8918</b></li>
     </ul>
 
     <p>You can also message them on <a href="https://discord.gg/pufaaWJaAH" target="_blank" rel="noreferrer">Discord</a> or send an email to <a href="mailto:techoutreach@hyland.com">techoutreach@hyland.com</a>.</p>

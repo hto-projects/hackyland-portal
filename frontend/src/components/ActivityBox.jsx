@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useRef, useEffect } from 'react';
 
 function ActivityBox({ activity, active }) {
-  const { name, emoji, description, materialUrl } = activity;
+  const { name, emoji, description, materialUrl, time } = activity;
 
   const activeDiv = useRef();
 
@@ -19,6 +19,7 @@ function ActivityBox({ activity, active }) {
     return (
       <div className="activity-box active" ref={activeDiv}>
         <h3>{emoji} {name}</h3>
+        <p className="sub">{time}</p>
         <p>{description}</p>
         <a href={materialUrl} rel="noreferrer" target="_blank">
         Click here to access the {name} materials.
@@ -30,6 +31,7 @@ function ActivityBox({ activity, active }) {
   return (
     <div className="activity-box">
       <h3>{emoji} {name}</h3>
+      <p className="sub">{time}</p>
       <p>{description}</p>
       <a href={materialUrl} rel="noreferrer" target="_blank">
         Click here to access the {name} materials.

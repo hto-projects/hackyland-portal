@@ -41,6 +41,7 @@ const authUser = asyncHandler(async (req, res) => {
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
   const { name, participantId, password } = req.body;
+  console.log(participantId);
 
   const participantUser = await User.findOne({ participantId });
 
@@ -92,6 +93,7 @@ const logoutUser = (req, res) => {
 // @access  Private
 const getUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
+  console.log(user);
 
   if (user) {
     res.json({

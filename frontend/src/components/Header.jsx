@@ -28,7 +28,7 @@ const Header = () => {
       <Navbar style={{background: "var(--hyland-green)"}} variant='dark' expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
-            <Navbar.Brand>🏠 2025 Hyland Hackathon</Navbar.Brand>
+            <Navbar.Brand>🏠 Hyland Hackathon</Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>

@@ -73,12 +73,35 @@ const projectInfo = asyncHandler(async (req, res) => {
 });
 
 const showcase = asyncHandler(async (req, res) => {
+  const projects = await Project.find({projectStatus: "approved"});
+  res.status(200).json(projects);
+});
+
+const allProjects = asyncHandler(async (req, res) => {
   const projects = await Project.find({});
   res.status(200).json(projects);
+});
+
+const approveProject = asyncHandler(async (req, res) => {
+  const projectId = req.params.projectId;
+  const project = await Project.findOne({ "projectId": projectId });
+
+  if (!project) {
+    res.status(404);
+    throw new Error('project not found');
+  }
+
+  project.projectStatus = "approved";
+  await project.save();
+  res.status(200).json({
+    message: `Project "${project.projectName}" approved`
+  });
 });
 
 export {
   submitProject,
   projectInfo,
-  showcase
+  showcase,
+  allProjects,
+  approveProject
 };

@@ -81,7 +81,7 @@ const getTeamData = asyncHandler(async (teamId) => {
     teamBio: team.teamBio,
     workstationNumber: team.workstationNumber,
     members: usersOnTeam.map(u => u.name || u.registeredName),
-    projectId: teamProject.projectId
+    projectId: teamProject ? teamProject.projectId : null
   };
 });
 

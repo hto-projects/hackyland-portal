@@ -3,7 +3,6 @@ import BookPage from "./BookPage";
 const DiscordInformation = () => {
   return <BookPage className="discord-page">
     <h1 id="discord-information">Discord Information</h1>
-<p><em>Communication is key.</em></p>
 <p>We will use <a href="https://discord.com/" target="_blank" rel="noreferrer">Discord</a> as a way for students and mentors to communicate during the event.</p>
 <h2 id="invite-link">Invite Link</h2>
 <p><a href="https://discord.gg/pufaaWJaAH" target="_blank" rel="noreferrer">Click here to join the Discord Server.</a></p>

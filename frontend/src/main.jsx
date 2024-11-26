@@ -22,7 +22,9 @@ import Showcase from './screens/Showcase.jsx';
 import ProjectInfoScreen from './screens/ProjectInfo.jsx';
 import ProjectSubmissionScreen from './screens/ProjectSubmission.jsx';
 import ViewUsersAdminScreen from './admin/ViewUsersAdmin.jsx';
+import ViewProjectsAdmin from './admin/ViewProjectsAdmin.jsx';
 import BookPages from './book/BookPages.jsx';
+import HackHeistSubmission from './screens/HackHeist.jsx';
 
 function routeFromPage(page, parentUrl = '') {
   return (
@@ -54,9 +56,13 @@ const router = createBrowserRouter(
       <Route path='' element={<PrivateRoute />}>
         <Route path='/view-users' element={<ViewUsersAdminScreen />} />
       </Route>
+      <Route path='' element={<PrivateRoute />}>
+        <Route path='/view-projects' element={<ViewProjectsAdmin />} />
+      </Route>
       <Route path='/team/:team' element={<TeamInfoScreen />} />
       <Route path='/project/:project' element={<ProjectInfoScreen />} />
       <Route path='/showcase' element={<Showcase />} />
+      <Route path="/key-of-the-scavenger" element={<HackHeistSubmission />} />
 
       {BookPages.map(p => routeFromPage(p))}
 

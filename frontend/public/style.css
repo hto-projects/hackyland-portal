@@ -300,6 +300,13 @@ thead tr {
   a {
     font-size: .9em;
   }
+
+  .sub {
+    font-style: italic;
+    font-size: 1.4em;
+    letter-spacing: 2pt;
+    text-align: right;
+  }
 }
 
 @media only screen and (max-width: 600px) {

@@ -38,28 +38,6 @@ const ViewUsersAdminScreen = () => {
         noRecordsMessage="There are no users to display"
         noFilteredRecordsMessage="No users match your filters!"
         />
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Registered Name</th>
-            <th>Participant ID</th>
-            <th>Name</th>
-            <th>Team ID</th>
-            <th>Admin</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((u) => (
-            <tr key={u.participantId}>
-              <td>{u.registeredName}</td>
-              <td>{u.participantId}</td>
-              <td>{u.name}</td>
-              <td>{u.teamId}</td>
-              <td>{u.admin ? "YES" : "NO"}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
     </>
   );
 };

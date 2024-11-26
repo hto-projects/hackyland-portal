@@ -8,13 +8,15 @@ export const teamsApiSlice = apiSlice.injectEndpoints({
         url: `${TEAMS_URL}/submit`,
         method: 'POST',
         body: data,
-      })
+      }),
+      invalidatesTags: ['Team', 'User', 'Project']
     }),
     teamInfo: builder.query({
       query: (teamId) => ({
         url: `${TEAMS_URL}/${teamId}`,
         method: 'GET',
-      })
+      }),
+      providesTags: ['Team']
     })
   })
 });

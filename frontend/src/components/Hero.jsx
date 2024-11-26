@@ -57,7 +57,7 @@ const Hero = () => {
     );
   }
 
-  let headerText = userInfo.data ? `Welcome back, ${userInfo.data.name}!` : "Welcome to the 2025 Hyland Hackathon";
+  let headerText = userInfo.data ? `Welcome back, ${userInfo.data.name}!` : "Welcome to the Hyland Hackathon";
 
   if (userInfo.isLoading || teamInfo.isLoading) {
     return <p>Loading...</p>;

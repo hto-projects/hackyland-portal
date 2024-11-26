@@ -19,6 +19,7 @@ const ProjectSubmissionScreen = () => {
   const [submitProject, { isLoading }] = useSubmitProjectMutation();
 
   const userInfo = useUserInfoQuery();
+
   const submittedProject = useProjectInfoQuery("ours");
 
   if (userInfo.isLoading) return <p>Loading...</p>;
