@@ -12,9 +12,6 @@ const submitKeywords = asyncHandler(async (req, res) => {
 
   const incorrectIdxs = [];
 
-  console.log(keyQuiz.answers);
-  console.log(keywords);
-
   for (let i = 0; i < keyQuiz.answers.length; i++) {
     if (keyQuiz.answers[i] !== keywords[i]) {
       incorrectIdxs.push(i);

@@ -25,6 +25,9 @@ const corsOptions = {
   credentials: true
 }
 
+console.log(frontEndUrl);
+console.log(corsOptions);
+
 app.use(cors(corsOptions));
 
 app.use(express.json());
