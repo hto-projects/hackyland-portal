@@ -139,6 +139,7 @@ const superlativePrizes = [
 
     <div className="category-container superlative">
       <h2>Superlative Prizes</h2>
+      <p className="sub">Want to nominate someone for a superlative award? Fill out <a href="https://forms.office.com/r/up8sMPBuid" target="_blank" rel="noreferrer" style={{color: "var(--light-blue)", fontStyle: "italic", fontWeight: "bold", fontSize: "1.1em"}}>this form!</a></p>
       <div className="prizes-container">
         {superlativePrizes.map((prize, idx) => (
           <PrizeBox key={idx} prize={prize} />
