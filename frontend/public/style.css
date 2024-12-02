@@ -309,6 +309,80 @@ thead tr {
   }
 }
 
+.prizes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.prize-box {
+  width: 400px;
+  height: 400px;
+  border-radius: 12pt;
+  border: 2px solid var(--black);
+  background: var(--light-blue);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: var(--black);
+}
+
+a.in-box {
+  color: var(--black);
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.prize-box img {
+  max-height: 200px;
+  transition: 300ms;
+}
+
+.prize-box h3 {
+  font-size: 1.29em;
+}
+
+.prize-box:hover img {
+  transform: scale(1.1);
+}
+
+.prizes-page {
+  text-align: center;
+}
+
+.category-container {
+  padding: 40px 10px 100px 10px;
+  border-radius: 12pt;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.category-container h2 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.category-container.marquee {
+  background: var(--hyland-green);
+}
+
+.category-container.superlative {
+  background: var(--blue);
+}
+
 @media only screen and (max-width: 600px) {
   .book-link-container .link-box, .home-box-container .link-box, .always-on-home .link-box {
     height: 75px;
