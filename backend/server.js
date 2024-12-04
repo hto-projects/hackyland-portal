@@ -10,6 +10,7 @@ import userRoutes from './routes/userRoutes.js';
 import teamRoutes from './routes/teamRoutes.js';
 import projectRoutes from './routes/projectRoutes.js';
 import quizRoutes from './routes/quizRoutes.js';
+import voteRoutes from './routes/voteRoutes.js';
 
 const port = process.env.PORT || 5000;
 const dbName = process.env.DB_NAME;
@@ -25,9 +26,6 @@ const corsOptions = {
   credentials: true
 }
 
-console.log(frontEndUrl);
-console.log(corsOptions);
-
 app.use(cors(corsOptions));
 
 app.use(express.json());
@@ -39,6 +37,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/teams/', teamRoutes);
 app.use('/api/projects/', projectRoutes);
 app.use('/api/quiz/', quizRoutes);
+app.use('/api/vote/', voteRoutes);
 
 if (process.env.NODE_ENV === 'production') {
   const __dirname = path.resolve();

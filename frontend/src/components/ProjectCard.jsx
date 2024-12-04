@@ -2,14 +2,16 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
-function ProjectCard({ name, projectId, description}) {
+function ProjectCard({ project }) {
+  // eslint-disable-next-line react/prop-types
+  const { projectName, projectDescription, projectId, projectThumbnail } = project;
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbDgESn9S9Yj8sHdE531aTyhWUjefuTOqAAw&s" />
+    <Card style={{ width: '23rem' }}>
+      <Card.Img variant="top" src={projectThumbnail || "/BlankProject.png"} />
       <Card.Body>
-        <Card.Title>{name}</Card.Title>
+        <Card.Title>{projectName}</Card.Title>
         <Card.Text>
-          {description}
+          {projectDescription}
         </Card.Text>
         <Link to={`/project/${projectId}`}>View Project</Link>
       </Card.Body>

@@ -11,6 +11,20 @@ const Hero = () => {
   let homeBoxes = [];
 
   if (userInfo.data) {
+    if (userInfo.data.admin) {
+      homeBoxes.push(
+        <LinkBox to="/view-users" style={{background: "var(--blue)"}}>
+          View Users
+        </LinkBox>
+      );
+
+      homeBoxes.push(
+        <LinkBox to="/view-projects" style={{background: "var(--orange)"}}>
+          View projects
+        </LinkBox>
+      );
+    } else {
+
     if (teamInfo.data) {
       // user is signed in and has a team
       homeBoxes.push(
@@ -34,6 +48,7 @@ const Hero = () => {
           </LinkBox>
         );
       }
+      
     } else {
       // user is signed in but does not have a team
       homeBoxes.push(
@@ -42,6 +57,7 @@ const Hero = () => {
         </LinkBox>
       );
     }
+  }
   } else {
     // user is not signed in
     homeBoxes.push(

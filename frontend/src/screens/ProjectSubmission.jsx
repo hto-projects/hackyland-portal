@@ -40,12 +40,12 @@ const ProjectSubmissionScreen = () => {
     e.preventDefault();
 
     if (!userInfo.data.teamId) {
-      alert("you must be on a team to submit a project.");
+      toast.error("you must be on a team to submit a project.");
     }
 
     try {
       const res = await submitProject({ projectName, projectDescription, artifactLink, projectThumbnail }).unwrap();
-      alert(res.message);
+      toast(res.message);
       navigate('/');
     } catch (err) {
       toast.error(err?.data?.message || err.error);

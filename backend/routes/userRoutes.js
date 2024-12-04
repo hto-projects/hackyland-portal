@@ -4,7 +4,8 @@ import {
   registerUser,
   logoutUser,
   getUserProfile,
-  getAllUsers
+  getAllUsers,
+  updateTeamForUser
 } from '../controllers/userController.js';
 import { protect, adminProtect } from '../middleware/authMiddleware.js';
 
@@ -17,5 +18,6 @@ router
   .route('/profile')
   .get(protect, getUserProfile);
 router.get('/all-users', adminProtect, getAllUsers);
+router.post('/update-team', adminProtect, updateTeamForUser);
 
 export default router;

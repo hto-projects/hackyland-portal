@@ -24,7 +24,7 @@ const Header = () => {
   };
 
   return (
-    <header>
+    <header style={{position: "fixed", width: "100%", zIndex: "2"}}>
       <Navbar style={{background: "var(--hyland-green)"}} variant='dark' expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>

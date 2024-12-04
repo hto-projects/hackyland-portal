@@ -1,5 +1,6 @@
 import asyncHandler from 'express-async-handler';
 import User from '../models/userModel.js';
+import Team from '../models/teamModel.js';
 import generateToken from '../utils/generateToken.js';
 
 // @desc    Auth user & get token
@@ -22,8 +23,6 @@ const authUser = asyncHandler(async (req, res) => {
   if (await user.matchPassword(password)) {
     generateToken(res, user._id);
 
-    console.log(user);
-
     res.json({
       _id: user._id,
       name: user.name,
@@ -41,7 +40,6 @@ const authUser = asyncHandler(async (req, res) => {
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
   const { name, participantId, password } = req.body;
-  console.log(participantId);
 
   const participantUser = await User.findOne({ participantId });
 
@@ -93,18 +91,68 @@ const logoutUser = (req, res) => {
 // @access  Private
 const getUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
-  console.log(user);
 
   if (user) {
     res.json({
       _id: user._id,
       name: user.name,
       participantId: user.participantId,
-      teamId: user.teamId
+      teamId: user.teamId,
+      admin: user.admin
     });
   } else {
     res.status(404);
     throw new Error('User not found');
+  }
+});
+
+const updateTeamForUser = asyncHandler(async (req, res) => {
+  const { participantId, teamId } = req.body;
+  
+  const user = await User.findOne({ participantId });
+  if (!user) {
+    res.status(404);
+    throw new Error('User not found');
+  }
+
+  if (!teamId) {
+    user.teamId = null;
+    try {
+      await user.save();
+      res.status(200).json({
+        message: `${user.name || user.registeredName} (${user.participantId}) has been removed from their team!`
+      });
+    } catch (e) {
+      res.status(400);
+      throw new Error(e);
+    }
+
+    return;
+  }
+
+  const team = await Team.findOne({ teamId });
+  const usersOnTeam = await User.find({ teamId });
+
+  if (!team) {
+    res.status(404);
+    throw new Error('Team not found');
+  }
+
+  if (usersOnTeam.length >= 5) {
+    res.status(400);
+    throw new Error('Team is full');
+  }
+
+  user.teamId = team.teamId;
+
+  try {
+    await user.save();
+    res.status(200).json({
+      message: `${user.name || user.registeredName} (${user.participantId}) has been added to team ${team.teamName} (${team.teamId})!`
+    });
+  } catch (e) {
+    res.status(400);
+    throw new Error(e);
   }
 });
 
@@ -124,5 +172,6 @@ export {
   registerUser,
   logoutUser,
   getUserProfile,
-  getAllUsers
+  getAllUsers,
+  updateTeamForUser
 };

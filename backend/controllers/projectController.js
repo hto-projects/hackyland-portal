@@ -1,6 +1,7 @@
 import asyncHandler from 'express-async-handler';
 import User from '../models/userModel.js';
 import Team from '../models/teamModel.js';
+import Vote from '../models/voteModel.js';
 import Project from '../models/projectModel.js';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -77,9 +78,39 @@ const showcase = asyncHandler(async (req, res) => {
   res.status(200).json(projects);
 });
 
+async function getProjectTeamMemberVotes(projectId) {
+  let allTeamMemberVotes = [];
+
+  const project = await Project.findOne({ "projectId": projectId });
+  const team = await Team.findOne({ "teamId": project.teamId });
+  const teamMembers = await User.find({ "teamId": project.teamId });
+
+  for (let i = 0; i < teamMembers.length; i++) {
+    const memberVotes = await Vote.find({participantId: teamMembers[i].participantId});
+    allTeamMemberVotes.push({
+      participantId: teamMembers[i].participantId,
+      participantName: teamMembers[i].name || teamMembers[i].registeredName,
+      votes: memberVotes
+    })
+  }
+
+  return allTeamMemberVotes;
+}
+
 const allProjects = asyncHandler(async (req, res) => {
   const projects = await Project.find({});
-  res.status(200).json(projects);
+  const projectsPlus = [];
+  for (let i = 0; i < projects.length; i++) {
+    const votes = await Vote.find({projectId: projects[i].projectId});
+    const teamMemberVotes = await getProjectTeamMemberVotes(projects[i].projectId);
+    projectsPlus.push({
+      ...projects[i]._doc,
+      voteCount: votes.length,
+      teamMemberVotes: teamMemberVotes
+    });
+  }
+  
+  res.status(200).json(projectsPlus);
 });
 
 const approveProject = asyncHandler(async (req, res) => {
