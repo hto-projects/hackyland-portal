@@ -9,6 +9,7 @@ import Prizes from "./Prizes";
 
 import EventSchedule from "./EventSchedule";
 import Activities from "./Activities";
+import BackupPortal from "./BackupPortal";
 
 import Contact from "./Contact";
 import DiscordInformation from "./DiscordInformation";
@@ -59,6 +60,12 @@ export default [
             pageTitle: "Activities",
             pageComponent: <Activities />,
             pageUrl: "/activities",
+            pageChildren: []
+          },
+          {
+            pageTitle: "Backup Portal",
+            pageComponent: <BackupPortal />,
+            pageUrl: "/backup-portal",
             pageChildren: []
           }
         ]
