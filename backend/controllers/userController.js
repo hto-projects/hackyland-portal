@@ -2,6 +2,7 @@ import asyncHandler from 'express-async-handler';
 import User from '../models/userModel.js';
 import Team from '../models/teamModel.js';
 import generateToken from '../utils/generateToken.js';
+import getNewParticipantId from '../utils/getNewParticipantId.js';
 
 // @desc    Auth user & get token
 // @route   POST /api/users/auth
@@ -167,11 +168,40 @@ const getAllUsers = asyncHandler(async (req, res) => {
   res.json(users);
 });
 
+const addParticipants = asyncHandler(async (req, res) => {
+  if (!req.user.admin) {
+    res.status(401);
+    throw new Error('Not authorized, not an admin');
+  }
+
+  const { participantNamesArray, addAdmins } = req.body;
+  const addedUsers = [];
+
+  try {
+    for (let i = 0; i < participantNamesArray.length; i++) {
+      const user = new User({
+        registeredName: participantNamesArray[i],
+        participantId: await getNewParticipantId(),
+        admin: addAdmins
+      });
+  
+      await user.save();
+      addedUsers.push(user);
+    }
+
+    res.status(201).json({ message: 'Participants added successfully', addedUsers: addedUsers });
+  } catch (e) {
+    res.status(400);
+    throw new Error(e);
+  }
+});  
+
 export {
   authUser,
   registerUser,
   logoutUser,
   getUserProfile,
   getAllUsers,
-  updateTeamForUser
+  updateTeamForUser,
+  addParticipants
 };

@@ -126,10 +126,31 @@ const superlativePrizes = [
 
   return <BookPage className="prizes-page">
     <h1>Prize Catalog</h1>
-    <p>If you win a Marquee Award or a Superlative Award, you will be able to select from these prize options. <em>Note: Exact prizes are subject to change depending on availability and price shifts.</em></p>
+    <p><em>Note: Exact prizes are subject to change depending on availability and price shifts.</em></p>
     
     <div className="category-container marquee">
-      <h2>Marquee Prizes</h2>
+      <h2>Marquee Awards</h2>
+      <p className="sub">Each project will be eligible for the following Marquee Award categories:</p>
+      <div className="marquee-boxes">
+        <div>
+          <p>
+          <b>Most Impressive MVP: </b>
+          Mentors choose the project that impresses them the most. They will consider actual working functionality, as well as technical ingenuity and overall quality.
+          </p>
+        </div>
+        <div>
+          <p>
+          <b>Most Outstanding Original Work: </b>
+          Mentors choose the project that demonstrates the best possible work of its creators. The project stands out in the showcase for its unique perspective, engaging presentation, and effortful originality.</p>
+        </div>
+        <div>
+        <p><b>Student Choice: </b>
+Students vote on their favorite projects in the showcase. After the other two Marquee Awards have been given, the remaining project with the most student votes wins this award. <em>Note: for a team to be eligble, ALL members of the time must submit ALL FIVE (5) of their votes for other projects.</em>
+</p>
+        </div>
+      </div>
+      <h3>Prizes</h3>
+      <p>Each member of a Marquee Award-winning team will pick one of these prizes:</p>
       <div className="prizes-container">
         {marqueePrizes.map((prize, idx) => (
           <PrizeBox key={idx} prize={prize} />
@@ -138,8 +159,10 @@ const superlativePrizes = [
     </div>
 
     <div className="category-container superlative">
-      <h2>Superlative Prizes</h2>
-      <p className="sub">Want to nominate someone for a superlative award? Fill out <a href="https://forms.office.com/r/up8sMPBuid" target="_blank" rel="noreferrer" style={{color: "var(--light-blue)", fontStyle: "italic", fontWeight: "bold", fontSize: "1.1em"}}>this form!</a></p>
+      <h2>Superlative Awards</h2>
+      <p>Superlative Awards will be given at the discretion of the mentors, and are not guaranteed. <em>Want to nominate someone for a Superlative Award? Fill out <a href="https://forms.office.com/r/up8sMPBuid" target="_blank" rel="noreferrer" style={{color: "var(--light-blue)", fontStyle: "italic", fontWeight: "bold", fontSize: "1.1em"}}>this form!</a></em></p>
+      <h3>Prizes</h3>
+      <p>Superlative Award winners will pick one of these prizes:</p>
       <div className="prizes-container">
         {superlativePrizes.map((prize, idx) => (
           <PrizeBox key={idx} prize={prize} />

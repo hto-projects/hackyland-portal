@@ -50,12 +50,20 @@ export const usersApiSlice = apiSlice.injectEndpoints({
       providesTags: ['User']
     }),
     getAllUsers: builder.query({
-      query: () =>({
+      query: () => ({
         url: `${USERS_URL}/all-users`,
         method: 'GET',
       }),
       providesTags: ['User']
-    })
+    }),
+    addParticipants: builder.mutation({
+      query: (data) => ({
+        url: `${USERS_URL}/add-participants`,
+        method: 'POST',
+        body: data,
+      }),
+      invalidatesTags: ['User']
+    }),
   }),
 });
 
@@ -66,5 +74,6 @@ export const {
   useUpdateUserMutation,
   useUserInfoQuery,
   useGetAllUsersQuery,
-  useUpdateTeamForUserMutation
+  useUpdateTeamForUserMutation,
+  useAddParticipantsMutation,
 } = usersApiSlice;

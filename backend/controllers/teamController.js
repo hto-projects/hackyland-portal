@@ -10,10 +10,16 @@ import { v4 as uuidv4 } from 'uuid';
 const submitTeam = asyncHandler(async (req, res) => {
   const { teamName, participantIdsArray, workstationNumber } = req.body;
   const teamNameExists = await Team.findOne({ "teamName": teamName});
+  const workstationTaken = await Team.findOne({ "workstationNumber": workstationNumber });
 
   if (teamNameExists) {
     res.status(400);
     throw new Error(':( that team name is already taken :(');
+  }
+
+  if (workstationTaken) {
+    res.status(400);
+    throw new Error(':( that workstation is already taken :(');
   }
 
   const foundParticipants = [];

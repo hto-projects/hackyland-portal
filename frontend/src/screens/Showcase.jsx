@@ -37,7 +37,7 @@ const ShowcaseScreen = () => {
       </p>
       <p>
       <i>Remember, everyone on your team has to submit ALL their votes for you to be eligible for the Student Choice award.</i></p>
-      <h2>Projects</h2>
+      {projects.length ? <h2>Projects</h2> : <h3>No projects yet!</h3>}
       <div className="projects-container">
         {projects.map((project) => (
           <ProjectCard key={project.projectId} project={project}></ProjectCard>

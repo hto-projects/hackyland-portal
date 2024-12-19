@@ -5,6 +5,7 @@ const teamSchema = mongoose.Schema(
     teamName: {
       type: String,
       required: true,
+      unique: true
     },
     teamBio: {
       type: String,
@@ -12,11 +13,13 @@ const teamSchema = mongoose.Schema(
     },
     workstationNumber: {
       type: Number,
-      required: true
+      required: true,
+      unique: true
     },
     teamId: {
       type: String,
-      required: true
+      required: true,
+      unique: true
     }
   }
 );

@@ -45,7 +45,7 @@ const ViewUsersAdminScreen = () => {
 
   return (
     <>
-      <h1>All Users</h1>
+      <h1>All Users <a style={{fontSize: "12px", fontWeight: "normal", fontStyle: "italic", fontDecoration: "none"}} href="/add-participants">add</a></h1>
       <FilterableTable
         namespace="Users"
         initialSort="name"

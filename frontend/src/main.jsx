@@ -25,6 +25,7 @@ import ViewUsersAdminScreen from './admin/ViewUsersAdmin.jsx';
 import ViewProjectsAdmin from './admin/ViewProjectsAdmin.jsx';
 import BookPages from './book/BookPages.jsx';
 import HackHeistSubmission from './screens/HackHeist.jsx';
+import AddParticipantsAdminScreen from './admin/AddParticipantsAdmin.jsx';
 
 function routeFromPage(page, parentUrl = '') {
   return (
@@ -58,6 +59,9 @@ const router = createBrowserRouter(
       </Route>
       <Route path='' element={<PrivateRoute />}>
         <Route path='/view-projects' element={<ViewProjectsAdmin />} />
+      </Route>
+      <Route path='' element={<PrivateRoute />}>
+        <Route path='/add-participants' element={<AddParticipantsAdminScreen />} />
       </Route>
       <Route path='/team/:team' element={<TeamInfoScreen />} />
       <Route path='/project/:project' element={<ProjectInfoScreen />} />

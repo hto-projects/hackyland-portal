@@ -11,9 +11,13 @@ const TeamInfoScreen = () => {
   
   return (
     <>
-      <h1>Team Info for {result.data.teamName}</h1>
+      <h1>Team: {result.data.teamName}</h1>
+      <p>Workstation Number: <b>{result.data.workstationNumber}</b></p>
       <h2>Members</h2>
-      {result.data.members.map((m, i) => <p key={i}>{m}</p>)}
+      <ul>
+        {result.data.members.map((m, i) => <li key={i}>{m}</li>)}
+      </ul>
+      
     </>
   )
 };

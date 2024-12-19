@@ -472,6 +472,46 @@ a.in-box {
   margin-bottom: 5px;
 }
 
+.proj-sub p.sub {
+  font-size: .9em;
+  margin-top: -10px;
+  font-style: italic;
+  color: #444;
+}
+
+.proj-sub label {
+  font-size: 1.2em;
+}
+
+.category-container.marquee li b {
+  font-size: 1.2em;
+}
+
+.category-container.marquee li {
+  margin-bottom: 15px;
+}
+
+div.marquee-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  div {
+    padding: 15px;
+    border-radius: 12pt;
+    background: white;
+    text-align: center;
+    color: black;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .book-link-container .link-box, .home-box-container .link-box, .always-on-home .link-box {
     height: 75px;

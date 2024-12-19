@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 
 const TeamSubmissionScreen = () => {
   const [teamName, setTeamName] = useState('');
-  const [workstationNumber, setWorkstationNumber] = useState(0);
+  const [workstationNumber, setWorkstationNumber] = useState('');
   const [participantId1, setParticipantId1] = useState('');
   const [participantId2, setParticipantId2] = useState('');
   const [participantId3, setParticipantId3] = useState('');
@@ -64,6 +64,7 @@ const TeamSubmissionScreen = () => {
   return (
     <FormContainer>
       <h1>Submit Team</h1>
+      <p>Use this form to submit your team!</p>
       <Form onSubmit={submitHandler}>
         <Form.Group className='my-2' controlId='name'>
           <Form.Label>Team Name</Form.Label>
@@ -80,7 +81,9 @@ const TeamSubmissionScreen = () => {
           <Form.Label>Workstation Number</Form.Label>
           <Form.Control
             type="number"
-            placeholder='Enter team name'
+            placeholder='Enter your workstation number'
+            min={1}
+            max={40}
             value={workstationNumber}
             required={true}
             onChange={(e) => setWorkstationNumber(e.target.value)}

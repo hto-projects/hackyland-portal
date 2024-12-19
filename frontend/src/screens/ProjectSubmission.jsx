@@ -55,9 +55,11 @@ const ProjectSubmissionScreen = () => {
   return (
     <FormContainer>
       <h1>Submit Project</h1>
-      <Form onSubmit={submitHandler}>
+      <p>Use this form to submit a project for your team!</p>
+      <Form onSubmit={submitHandler} className="proj-sub">
         <Form.Group className='my-2' controlId='name'>
           <Form.Label>Project Name</Form.Label>
+          <p className="sub">Share a short name for your project.</p>
           <Form.Control
             type='name'
             placeholder='Enter project name'
@@ -69,6 +71,7 @@ const ProjectSubmissionScreen = () => {
 
         <Form.Group className='my-2' controlId='name'>
           <Form.Label>Project Description</Form.Label>
+          <p className="sub">Provide a few sentences to explain your project: the purpose behind it, and any notable functionality or features.</p>
           <Form.Control
             as='textarea'
             rows={3}
@@ -81,6 +84,7 @@ const ProjectSubmissionScreen = () => {
 
         <Form.Group className='my-2' controlId='name'>
           <Form.Label>Artifact Link</Form.Label>
+          <p className="sub">Share a link to your project artifact, such as a video demo, website, or presentation. IMPORTANT NOTE: Google Drive is blocked on Hyland computers, so make sure to host your artifact somewhere else - we recommend OneDrive.</p>
           <Form.Control
             type='text'
             placeholder='Enter an accessible URL to your project artifact'
@@ -92,6 +96,7 @@ const ProjectSubmissionScreen = () => {
 
         <Form.Group className='my-2' controlId='name'>
           <Form.Label>Project Thumbnail (optional)</Form.Label>
+          <p className="sub">If you have a small picture to represent your project, share a URL for it here.</p>
           <Form.Control
             type='text'
             placeholder='Enter an image URL to appear alongside your project'
