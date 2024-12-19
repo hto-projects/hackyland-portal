@@ -160,7 +160,7 @@ Students vote on their favorite projects in the showcase. After the other two Ma
 
     <div className="category-container superlative">
       <h2>Superlative Awards</h2>
-      <p>Superlative Awards will be given at the discretion of the mentors, and are not guaranteed. <em>Want to nominate someone for a Superlative Award? Fill out <a href="https://forms.office.com/r/up8sMPBuid" target="_blank" rel="noreferrer" style={{color: "var(--light-blue)", fontStyle: "italic", fontWeight: "bold", fontSize: "1.1em"}}>this form!</a></em></p>
+      <p>Superlative Awards will be given at the discretion of the mentors, and are not guaranteed. <em>Want to nominate someone for a Superlative Award? Fill out <a href="https://forms.office.com/r/2c9TbuMiLV" target="_blank" rel="noreferrer" style={{color: "var(--light-blue)", fontStyle: "italic", fontWeight: "bold", fontSize: "1.1em"}}>this form!</a></em></p>
       <h3>Prizes</h3>
       <p>Superlative Award winners will pick one of these prizes:</p>
       <div className="prizes-container">

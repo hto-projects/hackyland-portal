@@ -16,7 +16,7 @@ const EventInfo = () => {
 
         <h3>Prizes</h3>
         <p>Peruse the <Link to="prizes">prize catalog</Link> and start thinking about what you might choose if you win an award.</p>
-        <p>If you find that another student is doing really well, and deserves a superlative award, you can nominate them using <a href="https://forms.office.com/r/up8sMPBuid" target="_blank" rel="noreferrer">this form</a>.</p>
+        <p>If you find that another student is doing really well, and deserves a superlative award, you can nominate them using <a href="https://forms.office.com/r/2c9TbuMiLV" target="_blank" rel="noreferrer">this form</a>.</p>
 
         <h2>Other Pages</h2>
         <ul>
