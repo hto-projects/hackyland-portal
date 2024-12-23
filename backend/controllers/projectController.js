@@ -129,10 +129,25 @@ const approveProject = asyncHandler(async (req, res) => {
   });
 });
 
+const deleteProject = asyncHandler(async (req, res) => {
+  const projectId = req.params.projectId;
+  const project = await Project.findOneAndDelete({ "projectId": projectId });
+
+  if (!project) {
+    res.status(404);
+    throw new Error('project not found');
+  }
+
+  res.status(200).json({
+    message: `Project "${project.projectName}" deleted`
+  });
+});
+
 export {
   submitProject,
   projectInfo,
   showcase,
   allProjects,
-  approveProject
+  approveProject,
+  deleteProject
 };

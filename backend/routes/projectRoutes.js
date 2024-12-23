@@ -4,7 +4,8 @@ import {
   projectInfo,
   showcase,
   allProjects,
-  approveProject
+  approveProject,
+  deleteProject
 } from '../controllers/projectController.js';
 import { protect, adminProtect, hydrateUser } from '../middleware/authMiddleware.js';
 
@@ -15,5 +16,6 @@ router.get('/project/:projectId', hydrateUser, projectInfo);
 router.get('/showcase', showcase);
 router.get('/all-projects', adminProtect, allProjects);
 router.post('/approve/:projectId', adminProtect, approveProject);
+router.post('/delete/:projectId', adminProtect, deleteProject);
 
 export default router;

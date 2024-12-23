@@ -1,6 +1,7 @@
 import { useAllProjectsQuery } from "../slices/projectsApiSlice";
 import { toast } from "react-toastify";
 import { useApproveProjectMutation } from "../slices/projectsApiSlice";
+import { useDeleteProjectMutation } from "../slices/projectsApiSlice";
 import { useState, useEffect } from "react";
 import Modal from 'react-bootstrap/Modal';
 
@@ -8,6 +9,7 @@ const ViewProjectsAdmin = () => {
   const result = useAllProjectsQuery();
   const [projectsToShow, setProjectsToShow] = useState([]);
   const [approveProject] = useApproveProjectMutation();
+  const [deleteProject] = useDeleteProjectMutation();
 
   const [showModal, setShowModal] = useState(false);
   const [modalProject, setModalProject] = useState({});
@@ -30,6 +32,19 @@ const ViewProjectsAdmin = () => {
   const approveProjectHandler = (projectId) => async () => {
     try {
       const res = await approveProject(projectId).unwrap();
+      toast(res.message);
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
+  };
+
+  const deleteProjectHandler = (projectId) => async () => {
+    if (!confirm("Are you sure you want to delete this project?")) {
+      return;
+    }
+
+    try {
+      const res = await deleteProject(projectId).unwrap();
       toast(res.message);
     } catch (err) {
       toast.error(err?.data?.message || err.error);
@@ -59,7 +74,10 @@ const ViewProjectsAdmin = () => {
                 <p>
                   Project Status: {project.projectStatus}</p><p>
                   {project.projectStatus === "unapproved" && (
-                    <button onClick={approveProjectHandler(project.projectId)}>Approve</button>
+                    <div style={{display: "flex", gap: "10px", flexDirection: "column"}}>
+                      <button onClick={approveProjectHandler(project.projectId)} style={{width: "min-content"}}>Approve</button>
+                      <button onClick={deleteProjectHandler(project.projectId)} style={{width: "min-content"}}>Delete</button>
+                    </div>
                   )}
                 </p>
                 </div>

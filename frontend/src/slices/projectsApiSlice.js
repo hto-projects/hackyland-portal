@@ -18,6 +18,13 @@ export const projectsApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ['Project']
     }),
+    deleteProject: builder.mutation({
+      query: (projectId) => ({
+        url: `${PROJECTS_URL}/delete/${projectId}`,
+        method: 'POST',
+      }),
+      invalidatesTags: ['Project']
+    }),
     projectInfo: builder.query({
       query: (projectId) => ({
         url: `${PROJECTS_URL}/project/${projectId}`,
@@ -45,6 +52,7 @@ export const projectsApiSlice = apiSlice.injectEndpoints({
 export const {
   useSubmitProjectMutation,
   useApproveProjectMutation,
+  useDeleteProjectMutation,
   useProjectInfoQuery,
   useShowcaseQuery,
   useAllProjectsQuery
