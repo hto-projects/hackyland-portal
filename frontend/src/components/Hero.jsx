@@ -73,7 +73,7 @@ const Hero = () => {
     );
   }
 
-  let headerText = userInfo.data ? `Welcome back, ${userInfo.data.name}!` : "Welcome to the Hyland Hackathon";
+  let headerText = userInfo.data ? `Welcome, ${userInfo.data.name}` : "Welcome to the Hyland Hackathon";
 
   if (userInfo.isLoading || teamInfo.isLoading) {
     return <p>Loading... <i><a href="/book/event-schedule/backup-portal">backup portal if needed</a></i></p>;

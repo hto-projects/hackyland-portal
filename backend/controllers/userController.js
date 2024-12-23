@@ -40,7 +40,7 @@ const authUser = asyncHandler(async (req, res) => {
 // @route   POST /api/users
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, participantId, password } = req.body;
+  const { name, participantId, password, confirmedName } = req.body;
 
   const participantUser = await User.findOne({ participantId });
 
@@ -52,6 +52,16 @@ const registerUser = asyncHandler(async (req, res) => {
   if (participantUser.password) {
     res.status(400);
     throw new Error('Oops! Looks like someone already registered with that participant id (angry crying emoji)');
+  }
+
+  if (!confirmedName) {
+    res.status(200).json({
+      message: 'Found a user with that ID! Please confirm your name to continue',
+      registeredName: participantUser.registeredName,
+      foundParticipantId: participantUser.participantId
+    });
+
+    return;
   }
 
   participantUser.name = name;
@@ -66,7 +76,8 @@ const registerUser = asyncHandler(async (req, res) => {
       _id: updatedUser._id,
       name: updatedUser.name,
       participantId: updatedUser.participantId,
-      teamId: updatedUser.teamId
+      teamId: updatedUser.teamId,
+      message: "User registered successfully"
     });
   } else {
     res.status(400);
