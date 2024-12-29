@@ -512,6 +512,50 @@ div.marquee-boxes {
   }
 }
 
+.team-tables > div {
+  border: 1px solid black;
+  max-width: 100%;
+}
+
+.team-tables {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  div {
+    background: black;
+    display: flex;
+    gap: 1px;
+    flex-direction: column;
+  }
+
+  div > .rowt {
+    display: flex;
+    flex-direction: row;
+    gap: 1px;
+    width: 400px;
+    max-width: 100%;
+  }
+
+  div > .rowt:first-child {
+    font-weight: bold;
+  }
+  
+  div > .rowt > div {
+    background: white;
+    padding: 4px;
+    text-align: center;
+  }
+
+  div > .rowt > div:first-child {
+    width: 40px;
+  }
+
+  div > .rowt > div:nth-child(2) {
+    width: 100%;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .book-link-container .link-box, .home-box-container .link-box, .always-on-home .link-box {
     height: 75px;

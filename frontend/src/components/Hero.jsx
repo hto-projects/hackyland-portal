@@ -14,7 +14,13 @@ const Hero = () => {
     if (userInfo.data.admin) {
       homeBoxes.push(
         <LinkBox to="/view-users" style={{background: "var(--blue)"}}>
-          View Users
+          View users
+        </LinkBox>
+      );
+
+      homeBoxes.push(
+        <LinkBox to="/all-teams" style={{background: "var(--pink)"}}>
+          View teams
         </LinkBox>
       );
 

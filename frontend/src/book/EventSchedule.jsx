@@ -122,7 +122,7 @@ const EventSchedule = () => {
 </tr>
 <tr>
 <td><b>5:00PM</b> - 6:00PM</td>
-<td>Wall of Fame Viewing</td>
+<td>Showcase Viewing</td>
 <td>Auditorium / Workstations</td>
 </tr>
 <tr style={{background: "var(--light-pink)"}}>

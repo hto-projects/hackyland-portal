@@ -17,11 +17,19 @@ export const teamsApiSlice = apiSlice.injectEndpoints({
         method: 'GET',
       }),
       providesTags: ['Team']
+    }),
+    allTeams: builder.query({
+      query: () => ({
+        url: `${TEAMS_URL}/all-teams`,
+        method: 'GET',
+      }),
+      providesTags: ['Team']
     })
   })
 });
 
 export const {
   useSubmitTeamMutation,
-  useTeamInfoQuery
+  useTeamInfoQuery,
+  useAllTeamsQuery
 } = teamsApiSlice;

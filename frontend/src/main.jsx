@@ -26,6 +26,7 @@ import ViewProjectsAdmin from './admin/ViewProjectsAdmin.jsx';
 import BookPages from './book/BookPages.jsx';
 import HackHeistSubmission from './screens/HackHeist.jsx';
 import AddParticipantsAdminScreen from './admin/AddParticipantsAdmin.jsx';
+import AllTeams from './admin/AllTeams.jsx';
 
 function routeFromPage(page, parentUrl = '') {
   return (
@@ -64,6 +65,7 @@ const router = createBrowserRouter(
         <Route path='/add-participants' element={<AddParticipantsAdminScreen />} />
       </Route>
       <Route path='/team/:team' element={<TeamInfoScreen />} />
+      <Route path='/all-teams' element={<AllTeams />} />
       <Route path='/project/:project' element={<ProjectInfoScreen />} />
       <Route path='/showcase' element={<Showcase />} />
       <Route path="/key-of-the-scavenger" element={<HackHeistSubmission />} />

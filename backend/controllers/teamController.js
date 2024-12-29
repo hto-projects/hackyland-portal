@@ -113,6 +113,22 @@ const teamInfo = asyncHandler(async (req, res) => {
   res.status(200).json(teamData);
 });
 
+const getAllTeams = asyncHandler(async (req, res) => {
+  const teams = await Team.find({});
+  console.log(teams);
+  const teamData = [];
+
+  for (let i = 0; i < teams.length; i++) {
+    const team = teams[i];
+    teamData.push({
+      teamId: team.teamId,
+      workstationNumber: team.workstationNumber,
+    });
+  }
+
+  res.status(200).json(teamData);
+});
+
 const updateTeamInfo = asyncHandler(async (req, res) => {
   const user = req.user;
   const teamId = user.teamId;
@@ -134,4 +150,5 @@ export {
   submitTeam,
   teamInfo,
   updateTeamInfo,
+  getAllTeams
 };

@@ -33,12 +33,41 @@ const Rules = () => {
         <li>Do not venture beyond the event perimeter</li>
         <li>Do not go upstairs, do not leave the Core of the building</li>
         <li>You are welcome to use the bathrooms and showers in the building</li>
-        <li>Keep room doors open at all times</li>
+        <li>Room doors MUST remain open at all times</li>
         <li>Quiet hours from midnight to 7am</li>
+        <li>Any comfortable furniture is first come, first served</li>
+        <li>You are welcome to sleep in the Auditorium after midnight</li>
+        <li>You must remain within public areas of the event, even to</li>
         <li>We will be watching you (we have surveillance cameras 👀)</li>
         <li>For the Scavenger&apos;s Key in the Hack Heist, keyword four is abide</li>
         <li>If you need help, ask one of the mentors</li>
         <li>If you get in trouble, we get in trouble too - so please don&apos;t 😇</li>
+      </ul>
+
+      <h2>Project Rules</h2>
+      <ul>
+        <li>All work for projects must be completed during this weekend</li>
+        <li>Participants can use A.I. tools like ChatGPT for things like:</li>
+  <ul>
+<li>Explaining code</li>
+<li>Answering questions</li>
+<li>Helping debug</li>
+<li>Generating ideas</li>
+  </ul>
+
+<li>Do NOT use A.I. to generate code directly</li>
+<li>Participants are allowed to use boiler-plate starter code as long as they give credit and expand upon the starter code sufficiently</li>
+<li>Submission artifacts can include things like: </li>
+<ul>
+<li>A SHORT video with a demonstration of what was made</li>
+<li>A direct link to a website</li>
+<li>A link to download the project</li>
+<li>A document describing what was created</li>
+<li>A set of slides explaining the project</li>
+<li>A GitHub repository</li>
+
+</ul>
+
       </ul>
     </BookPage>
   );
