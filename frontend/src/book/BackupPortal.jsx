@@ -27,6 +27,7 @@ const BackupPortal = () => {
     </LinkBox>
     </div>
 
+<p style={{textAlign: "center", marginTop: "50px", fontStyle: "italic"}}>At the end of the event, <a href="https://forms.office.com/r/6QnpgCaYA9">click here to give us your feedback</a>!</p>
   </BookPage>
 }
 

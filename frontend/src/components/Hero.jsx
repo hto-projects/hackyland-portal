@@ -108,6 +108,7 @@ const Hero = () => {
           </div>
         </Card>
       </Container>
+      <p style={{float: "left"}}><i>At the end of the event, <a href="https://forms.office.com/r/6QnpgCaYA9">click here to give us your feedback</a>!</i></p>
       <p style={{float: "right"}}><i><a href="/book/event-schedule/backup-portal">backup portal if needed</a></i></p>
     </div>
   );
