@@ -82,7 +82,6 @@ async function getProjectTeamMemberVotes(projectId) {
   let allTeamMemberVotes = [];
 
   const project = await Project.findOne({ "projectId": projectId });
-  const team = await Team.findOne({ "teamId": project.teamId });
   const teamMembers = await User.find({ "teamId": project.teamId });
 
   for (let i = 0; i < teamMembers.length; i++) {
@@ -102,11 +101,13 @@ const allProjects = asyncHandler(async (req, res) => {
   const projectsPlus = [];
   for (let i = 0; i < projects.length; i++) {
     const votes = await Vote.find({projectId: projects[i].projectId});
+    const team = await Team.findOne({ "teamId": projects[i].teamId });
     const teamMemberVotes = await getProjectTeamMemberVotes(projects[i].projectId);
     projectsPlus.push({
       ...projects[i]._doc,
       voteCount: votes.length,
-      teamMemberVotes: teamMemberVotes
+      teamMemberVotes: teamMemberVotes,
+      workstationNumber: team.workstationNumber
     });
   }
   

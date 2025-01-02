@@ -57,6 +57,7 @@ const ViewProjectsAdmin = () => {
       <p>
         <button onClick={() => setProjectsToShow(result.data)}>Show All Projects</button>
         <button onClick={() => setProjectsToShow(result.data.filter((project) => project.projectStatus === "unapproved"))}>Show Unapproved Projects</button>
+        <button onClick={() => { const newArr = [...result.data]; newArr.sort((p1, p2) => p1.workstationNumber - p2.workstationNumber); setProjectsToShow(newArr)}}>Sort By Workstation Number</button>
         <button onClick={() => { const newArr = [...result.data]; newArr.sort((p1, p2) => p2.voteCount - p1.voteCount); setProjectsToShow(newArr)}}>Sort By Vote Count</button>
       </p>
       <div style={{display: "flex", flexWrap: "wrap", gap: "20px"}}>
@@ -71,6 +72,7 @@ const ViewProjectsAdmin = () => {
                 <div style={{marginLeft: "10%", width: "40%"}}>
                 <p><a href={project.artifactLink} target="_blank" rel="noreferrer">Artifact Link</a></p>
                 <p><a href={`/team/${project.teamId}`} target="_blank" rel="noreferrer">Team Link</a></p>
+                <p>Workstation Number: <b>{project.workstationNumber}</b></p>
                 <p>
                   Project Status: {project.projectStatus}</p><p>
                   {project.projectStatus === "unapproved" && (
