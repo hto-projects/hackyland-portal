@@ -37,7 +37,7 @@ const Rules = () => {
         <li>Quiet hours from midnight to 7am</li>
         <li>Any comfortable furniture is first come, first served</li>
         <li>You are welcome to sleep in the Auditorium after midnight</li>
-        <li>You must remain within public areas of the event, even to</li>
+        <li>You must remain within public areas of the event, even to sleep</li>
         <li>We will be watching you (we have surveillance cameras 👀)</li>
         <li>For the Scavenger&apos;s Key in the Hack Heist, keyword four is abide</li>
         <li>If you need help, ask one of the mentors</li>
