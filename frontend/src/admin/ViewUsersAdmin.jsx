@@ -11,6 +11,8 @@ const ViewUsersAdminScreen = () => {
   useEffect(() => {
     if (result.data) {
       setUsers(result.data);
+      console.log("PARTICIPANTS");
+      console.log(users.filter(u => !u.admin).map(u => `${u.registeredName} (${u.participantId})`).join("\n"));
     }
   }, [users, result]);
 
