@@ -28,8 +28,8 @@ const ViewUsersAdminScreen = () => {
   }
 
   // eslint-disable-next-line react/prop-types
-  const renderTeamId = p => p.record.teamId ? <a href={`/team/${p.record.teamId}`}>{p.record.teamId}</a> : "No Team";
-  const renderUpdateTeam = p => <button onClick={updateTeam(p.record.participantId)}>Update Team</button>;
+  const renderTeamId = p => p.record.admin ? "N/A" : (p.record.teamId ? <a href={`/team/${p.record.teamId}`}>{p.record.teamId}</a> : "No Team");
+  const renderUpdateTeam = p => p.record.admin ? "N/A" : <button onClick={updateTeam(p.record.participantId)}>Update Team</button>;
 
   const fields = [
     { name: "registeredName", displayName: "Registered Name", inputFilterable: true, sortable: true },
@@ -47,6 +47,8 @@ const ViewUsersAdminScreen = () => {
     <>
       <h1>All Users <a style={{fontSize: "12px", fontWeight: "normal", fontStyle: "italic", fontDecoration: "none"}} href="/add-participants">add</a></h1>
       <FilterableTable
+        className={"users-table"}
+        trClassName={record => record.admin ? "admin" : ""}
         namespace="Users"
         initialSort="name"
         data={users}

@@ -556,6 +556,10 @@ div.marquee-boxes {
   }
 }
 
+.users-table tr.admin {
+  background: var(--light-yellow);
+}
+
 @media only screen and (max-width: 600px) {
   .book-link-container .link-box, .home-box-container .link-box, .always-on-home .link-box {
     height: 75px;
