@@ -560,6 +560,14 @@ div.marquee-boxes {
   background: var(--light-yellow);
 }
 
+.users-table .pagination {
+  display: none;
+}
+
+.users-table .filterable-table {
+  border-color: var(--black);
+}
+
 @media only screen and (max-width: 600px) {
   .book-link-container .link-box, .home-box-container .link-box, .always-on-home .link-box {
     height: 75px;

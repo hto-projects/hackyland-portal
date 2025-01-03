@@ -51,6 +51,8 @@ const ViewUsersAdminScreen = () => {
       <FilterableTable
         className={"users-table"}
         trClassName={record => record.admin ? "admin" : ""}
+        pageSizes={null}
+        pageSize={200}
         namespace="Users"
         initialSort="name"
         data={users}
