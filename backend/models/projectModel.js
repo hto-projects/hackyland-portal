@@ -30,6 +30,10 @@ const projectSchema = mongoose.Schema(
       type: String,
       required: true,
       default: "unapproved"
+    },
+    approvalTime: {
+      type: Date,
+      required: false
     }
   }
 );

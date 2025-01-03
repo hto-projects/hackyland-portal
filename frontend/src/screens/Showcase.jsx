@@ -27,7 +27,7 @@ const ShowcaseScreen = () => {
   if (result.isLoading) return <p>Loading...</p>;
   if (result.error || !result.data) return <p>Error loading project info</p>;
   
-  const projects = shuffle([...result.data]);
+  const projects = [...result.data].sort((a, b) => a.approvalTime - b.approvalTime);
 
   return (
     <>

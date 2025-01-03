@@ -124,6 +124,7 @@ const approveProject = asyncHandler(async (req, res) => {
   }
 
   project.projectStatus = "approved";
+  project.approvalTime = new Date();
   await project.save();
   res.status(200).json({
     message: `Project "${project.projectName}" approved`

@@ -568,6 +568,11 @@ div.marquee-boxes {
   border-color: var(--black);
 }
 
+.users-table th {
+  user-select: none;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 600px) {
   .book-link-container .link-box, .home-box-container .link-box, .always-on-home .link-box {
     height: 75px;
